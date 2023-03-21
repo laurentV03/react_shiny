@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import './index.css'
+import { createGlobalStyle } from 'styled-components/macro'
 
 // import App from './App';
 import Home from './pages/Home'
@@ -22,9 +23,16 @@ import Error from './components/Error'
 //   </React.StrictMode>
 // );
 
+const GlobalStyle = createGlobalStyle`
+    div {
+        font-family: 'Trebuchet MS', Helvetica, sans-serif;
+    }
+`
+
 ReactDOM.render(
   <React.StrictMode>
     <Router>
+      <GlobalStyle />
       <Header />
       <Switch>
         <Route exact path="/">
