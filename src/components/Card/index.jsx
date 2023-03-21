@@ -8,12 +8,18 @@ const CardLabel = styled.span`
   font-size: 22px;
   font-weight: bold;
 `
+const CardTitle = styled.span`
+  color: black;
+  font-size: 22px;
+  font-weight: normal;
+  align-self: center;
+  background-color: ${(props) => (props.title === 'John Doe' ? 'blue' : 'red')};
+`
 const CardImage = styled.img`
   height: 80px;
   width: 80px;
   border-radius: 50%;
 `
-
 const CardWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -28,12 +34,12 @@ const CardWrapper = styled.div`
   }
 `
 
-function Card({ label, title, picture }) {
+function Card({ label, picture, title }) {
   return (
     <CardWrapper>
       <CardLabel>{label}</CardLabel>
       <CardImage src={picture} alt="freelance" height={80} width={80} />
-      <span>{title}</span>
+      <CardTitle title={title}>{title}</CardTitle>
     </CardWrapper>
   )
 }
