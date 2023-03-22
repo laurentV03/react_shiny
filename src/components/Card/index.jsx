@@ -1,12 +1,14 @@
 import PropTypes from 'prop-types'
-import DefaultPicture from '../../assets/profile.png'
 import styled from 'styled-components/macro'
-import colors from '../../utils/styles/colors'
+
+import DefaultPicture from '../../assets/profile.png'
+import colors from '../../utils/style/colors'
 
 const CardLabel = styled.span`
   color: #5843e4;
   font-size: 22px;
   font-weight: bold;
+  padding-left: 15px;
 `
 const CardTitle = styled.span`
   color: black;
@@ -16,17 +18,20 @@ const CardTitle = styled.span`
   background-color: ${(props) => (props.title === 'John Doe' ? 'blue' : 'red')};
 `
 const CardImage = styled.img`
-  height: 80px;
-  width: 80px;
+  height: 150px;
+  width: 150px;
+  align-self: center;
   border-radius: 50%;
 `
 const CardWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   padding: 15px;
   background-color: ${colors.backgroundLight};
   border-radius: 30px;
-  width: 350px;
+  width: 300px;
+  height: 300px;
   transition: 200ms;
   &:hover {
     cursor: pointer;
@@ -38,7 +43,7 @@ function Card({ label, picture, title }) {
   return (
     <CardWrapper>
       <CardLabel>{label}</CardLabel>
-      <CardImage src={picture} alt="freelance" height={80} width={80} />
+      <CardImage src={picture} alt="freelance" />
       <CardTitle title={title}>{title}</CardTitle>
     </CardWrapper>
   )

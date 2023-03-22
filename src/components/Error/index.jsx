@@ -9,7 +9,7 @@
 // export default Error
 
 import styled from 'styled-components'
-import colors from '../../utils/styles/colors'
+import colors from '../../utils/style/colors'
 
 const ErrorWrapper = styled.div`
   margin: 30px;

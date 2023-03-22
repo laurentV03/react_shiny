@@ -1,7 +1,8 @@
 // import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import colors from '../../utils/styles/colors'
+
+import colors from '../../utils/style/colors'
 import DarkLogo from '../../assets/dark-logo.png'
 
 const StyledLink = styled(Link)`

@@ -7,8 +7,9 @@
 // }
 
 import styled from 'styled-components'
-import colors from '../../utils/styles/colors'
-import { StyledLink } from '../../utils/styles/Atoms'
+
+import colors from '../../utils/style/colors'
+import { StyledLink } from '../../utils/style/Atoms'
 import HomeIllustration from '../../assets/home-illustration.svg'
 
 const HomeWrapper = styled.div`
