@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import './index.css'
-import { createGlobalStyle } from 'styled-components/macro'
+// import { createGlobalStyle } from 'styled-components/macro'
 
 // import App from './App';
 import Home from './pages/Home'
@@ -13,6 +13,10 @@ import Results from './pages/Results'
 
 import Header from './components/Header'
 import Error from './components/Error'
+import { ThemeProvider, SurveyProvider } from './utils/context'
+
+import GlobalStyle from './utils/style/GlobalStyle'
+import Footer from './components/Footer'
 
 // import reportWebVitals from './reportWebVitals';
 
@@ -23,38 +27,43 @@ import Error from './components/Error'
 //   </React.StrictMode>
 // );
 
-const GlobalStyle = createGlobalStyle`
-* {
-  font-family: 'Trebuchet MS', Helvetica, sans-serif;
-}
+// const GlobalStyle = createGlobalStyle`
+// * {
+//   font-family: 'Trebuchet MS', Helvetica, sans-serif;
+// }
 
-body {
-  margin: 0;
-}
-`
+// body {
+//   margin: 0;
+// }
+// `
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <GlobalStyle />
-      <Header />
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route path="/survey/:questionNumber">
-          <Survey />
-        </Route>
-        <Route path="/results">
-          <Results />
-        </Route>
-        <Route path="/freelances">
-          <Freelances />
-        </Route>
-        <Route>
-          <Error />
-        </Route>
-      </Switch>
+      <ThemeProvider>
+        <SurveyProvider>
+          <GlobalStyle />
+          <Header />
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route path="/survey/:questionNumber">
+              <Survey />
+            </Route>
+            <Route path="/results">
+              <Results />
+            </Route>
+            <Route path="/freelances">
+              <Freelances />
+            </Route>
+            <Route>
+              <Error />
+            </Route>
+          </Switch>
+          <Footer />
+        </SurveyProvider>
+      </ThemeProvider>
     </Router>
   </React.StrictMode>,
   document.getElementById('root')
